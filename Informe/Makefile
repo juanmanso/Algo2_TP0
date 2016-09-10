@@ -1,4 +1,4 @@
-# Makefile para informes en LaTex utilizando además los programas Octave y XCircuit
+# Makefile para informes en LaTex 
 
 # Se supone que el Makefile se encuentra en una carpeta LaTeX con los .tex, mientras
 # que la carpeta LaTeX se encuentra en una carpeta mayor que también contiene los otros
@@ -15,7 +15,7 @@ TEX = pdflatex
 SEC = ./Secciones/*
 OUTPUT_DIR = ../
 FIG_DIR = ./Figuras
-
+SOFTWARE_DIR = ./Programa
 
 all: main.pdf clean
 release: main.pdf cls
@@ -55,8 +55,8 @@ clean:
 cls: clean
 	-rm -f $(FIG_DIR)/*eps-converted-to.pdf
 	-rm -f ./main.pdf
-	make -C $(GRAPHICS_DIR) clean
-	make -C $(CIRCUITS_DIR) clean
+	make -C $(SOFTWARE_DIR) clean
+
 # El -rm elimina el archivo (rm) pero sin quejarse si no puede borrarlo (-).
 # El -f no pone texto si de que se pudo o no pudo.
 
