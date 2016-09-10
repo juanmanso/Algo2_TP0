@@ -1,0 +1,33 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}		% Configuro la codificación
+\input{config.tex}				% Archivo con los comandos globales como Título y autores
+\input{preamble.tex}
+\graphicspath{{./Figuras/}}		% Directorio que contiene los graficos
+
+% Defino el path para los input de .tex y de .eps
+\makeatletter
+\def\input@path{{./Figuras/}{./Secciones/}{./Cover_page.tex/}{../Programa/}}
+\makeatother
+
+
+\begin{document}
+		% Carátula (formal o simple,_formal o _simple respectivamente),
+		% Resumen e Índice (si es necesario configurar en config.tex) del informe
+		\input{cover_simple.tex}
+
+	\section{Desarrollo}
+		En esta sección se exponen el diseño del programa, su análisis y corridas de prueba.
+
+		\subsection{Diseño e implementación}	\label{sec:diseño}
+			\input{1_design.tex}
+
+		\subsection{Análisis} 			\label{sec:analisis}
+			\input{2_analisis.tex}
+
+		\subsection{Corridas de prueba}
+			\input{3_testing.tex}
+	\section{Código fuente}
+		\lstlistoflistings
+		\lstinputlisting{archivo.sarasa}
+\end{document}
