@@ -96,7 +96,7 @@ Para ver los tags
 
 -----
 
-Para ver los branches del repositorio (marca el actual con un '*'):
+Para ver los branches del repositorio (marca el actual con un '\*'):
 
 		git branch
 
@@ -133,3 +133,4 @@ Hacer esto siempre antes de pushear los commits para evitar problemas y errores.
 
 Para más información visitar:
 http://blog.santiagobasulto.com.ar/programacion/2011/11/27/tutorial-de-git-en-espanol.html
+https://www.atlassian.com/git/
