@@ -8,7 +8,8 @@
 
 # DIR_INCLUDE = -I ./cmdline -I ./complejo -I ./am_proc
 DIR_INCLUDE= -I.
-CXXARGS  = #-ansi -pedantic -Wall -g
+CXX = g++
+CXXARGS  = -ansi -pedantic -Wall -g
 CXXFLAGS = $(DIR_INCLUDE) $(CXXARGS)
 RM = -rm -f
 
