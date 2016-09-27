@@ -127,6 +127,7 @@ Si un conflicto ocurre, Git marcará el conflicto EN EL MISMO ARCHIVO y deberá 
 Para hacer cambios en la historia (cambio en los commits):
 
 		git rebase HEAD~<número de commits que se quieran combinar>
+		git commit --amend
 
 Hacer esto siempre antes de pushear los commits para evitar problemas y errores. Es una buena práctica usar rebase ANTES de pushear para mantener limpio el historial del repositorio remoto.
 

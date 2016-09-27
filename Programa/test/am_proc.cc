@@ -29,17 +29,15 @@ void am_proc(istream *is, ostream *os, const size_t& n_decimator){
 		}
 	
 		// Compruebo si se llegó a EOF
-//		if(i == n_decimator){
-			if(is->eof())
-				eof_flag=true;
-	
-			if(!(is->good())){ 
-			// El for terminó por no puder guardar el caracter en aux_x
-				cerr	<< "Error: Cannot find EOF on input stream"
-					<< endl;
-				exit(1);
-			}		
-//		}
+		if(is->eof())
+			eof_flag=true;
+
+		if(is->bad()){ 
+		// El for terminó por no puder guardar el caracter en x
+			cerr	<< "Error: Cannot read complex on input stream"
+				<< endl;
+			exit(1);
+		}		
 
 		// Realizo el promedio móvil
 		c=c / n_decimator;
@@ -50,12 +48,6 @@ void am_proc(istream *is, ostream *os, const size_t& n_decimator){
 	
 	if(os->bad()){
 		cerr	<< "Error: Cannot write output file"
-			<< endl;
-		exit(1);
-	}
-
-	if(is->bad()){
-		cerr	<< "Error: Cannot read input file"
 			<< endl;
 		exit(1);
 	}

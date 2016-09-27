@@ -51,7 +51,7 @@ static option_t options[] = {
 	{1, "i", "input", "-", opt_input, OPT_DEFAULT},
 	{1, "o", "output", "-", opt_output, OPT_DEFAULT},
 //	{1, "f", "format", "-", opt_factor, OPT_DEFAULT},
-	{1, "N", "n_decimator","-",opt_n_decimator, OPT_DEFAULT},
+	{1, "N", "n_decimator","500",opt_n_decimator, OPT_DEFAULT},
 	{0, "h", "help", NULL, opt_help, OPT_DEFAULT},
 	{0, },
 };
@@ -63,12 +63,11 @@ static fstream ifs; 		// Input File Stream (derivada de la clase ifstream que de
 static fstream ofs;		// Output File Stream (derivada de la clase ofstream que deriva de ostream para el manejo de archivos)
 
 
-#define POS_I_OPT 1
-#define POS_O_OPT 2
-#define POS_N_OPT 3
-#define POS_HELP_OPT 4
+#define POS_I_OPT 0
+#define POS_O_OPT 1
+#define POS_N_OPT 2
+#define POS_HELP_OPT 3
 
-#define DEFAULT_N 500
 
 
 /*****************************************************/
@@ -80,7 +79,7 @@ opt_input(string const &arg)
 	// estándar. De lo contrario, abrimos un archivo en modo
 	// de lectura.
 	//
-	if (arg == "-") {
+	if (arg == (options+POS_I_OPT)->def_value) {
 		iss = &cin;		// Establezco la entrada estandar cin como flujo de entrada
 	}
 	else {
@@ -108,9 +107,10 @@ opt_output(string const &arg)
 	// estándar. De lo contrario, abrimos un archivo en modo
 	// de escritura.
 	//
-	if (arg == "-") {
+	if (arg == (options+POS_O_OPT)->def_value) {
 		oss = &cout;	// Establezco la salida estandar cout como flujo de salida
-	} else {
+	} 
+	else {
 		ofs.open(arg.c_str(), ios::out);
 		oss = &ofs;
 	}
@@ -131,14 +131,11 @@ opt_n_decimator(string const &arg)
 {
 	istringstream iss(arg);
 
-	// Si el nombre del archivos es "-", usaremos la salida
-	// estándar. De lo contrario, abrimos un archivo en modo
-	// de escritura.
+	// Intentamos extraer el N de la línea de comandos.
+	// Para detectar argumentos que únicamente consistan de
+	// números enteros, vamos a verificar que EOF llegue justo
+	// después de la lectura exitosa del escalar.
 	
-	if( arg == "-"){
-		n_decimator = DEFAULT_N;
-	}	
-
 	if(!(iss >> n_decimator) || !iss.eof()) {
 		cerr << "non-integer factor: "
 		     << arg
