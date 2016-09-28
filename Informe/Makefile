@@ -17,8 +17,8 @@ OUTPUT_DIR = ../
 FIG_DIR = ./Figuras
 SOFTWARE_DIR = ./Programa
 
-all: main.pdf clean
-release: main.pdf cls
+all: main.pdf rename_copy clean
+release: main.pdf rename_copy cls
 
 
 main.pdf: main.tex config.tex preamble.tex $(SEC) 
@@ -42,12 +42,8 @@ view: $(OUTPUT_DIR)$(NAME_PROJECT).pdf
 
 .PHONY: clean
 clean:
-	-rm -f *.out
-	-rm -f *.aux
-	-rm -f *.log
-	-rm -f *.lof
-	-rm -f *.lot
-	-rm -f *.toc
+	-rm -f *.out *.aux *.log
+	-rm -f *.lof *.lot *.toc *.lol
 	-rm -f *~
 	-rm -f ./Secciones/*~
 
