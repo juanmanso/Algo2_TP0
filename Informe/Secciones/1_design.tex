@@ -49,6 +49,8 @@ Con estas observaciones en mente, se optó por el siguiente algoritmo de impleme
 
  Con respecto al manejo de argumentos, para utilizar la clase \texttt{cmdline} hace falta definir la tabla de opciones que se esperan recibir, de tipo \texttt{option\_t}. Se optó por definirla dentro del \texttt{main} del programa, con las siguientes opciones:
 
+%	\lstinputlisting[firstline=48, lastline=54]{main.cc}
+
 \lstset{language=C++}
 \begin{lstlisting}[frame=single]
 static option_t options[] = {
@@ -57,6 +59,7 @@ static option_t options[] = {
 	{1, "N", "n_decimator","500",opt_n_decimator, OPT_DEFAULT},
 	{0, "h", "help", NULL, opt_help, OPT_DEFAULT},
 	{0, },
+};
 \end{lstlisting}
 
 Como es requerido, se definió a la cadena ``-'' (tercera columna de la tabla de opciones) como el valor por defecto para las opciones de entrada y de salida. De esta manera, ya sea que se haya omitido esa opción o se la especifique explicítamente para que asuma su valor por defecto, en ambos casos se  obtendrá el mismo resultado.

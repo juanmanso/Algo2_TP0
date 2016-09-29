@@ -4,9 +4,6 @@
 ## archivos con esos nombres. Por lo tanto, no busca la existencia de ellos y opera solo
 ## si es llamado y siempre. También se usa para evitar ambiguedades (como con el comando view)
 
-
-
-# DIR_INCLUDE = -I ./cmdline -I ./complejo -I ./am_proc
 DIR_INCLUDE= -I.
 CXX = g++
 CXXARGS  = -ansi -pedantic -Wall -g
@@ -52,4 +49,4 @@ am_proc.cc: am_proc.h complejo.h
 
 .PHONY: clean
 clean:
-	$(RM) -vf *.o *.exe *.t *.out *.err
+	$(RM) -vf *.o *.exe *.t *.out *.err .*.swp

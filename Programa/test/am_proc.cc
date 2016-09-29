@@ -8,25 +8,21 @@
 
 using namespace std;
 
-void am_proc(istream *is, ostream *os, const size_t& n_decimator){
+void
+am_proc(istream *is, ostream *os, const size_t& n_decimator){
 	
 	bool eof_flag=false;
 	size_t i;
-	complejo c, aux; // aux_c tendrá la suma y aux_x será el que recibe el complejo del stream
+	complejo c, aux; // c tendrá la suma y aux será el que recibe el complejo del stream
 
 
 	// Si entra un archivo vacio (primero lee EOF), corta el for y luego el while, devolviendo un vacio
 
-	cout<<"HOLA"<<endl;
-
 	while(!eof_flag){
 		
 		//  Se suman los primeros 'n_decimator' números hasta que corte
-		for(i=1; i<=n_decimator && ((*is)>>aux); i++){
+		for(i=1; i<=n_decimator && ((*is)>>aux); i++)
 			c += aux;
-			*os<<"c: "<<c<<endl;
-			*os<<aux<<endl;
-		}
 	
 		// Compruebo si se llegó a EOF
 		if(is->eof())

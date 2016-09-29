@@ -5,7 +5,8 @@
 
 using namespace std;
 
-void am_proc(istream *, ostream *, const size_t&);
+void
+am_proc(istream *, ostream *, const size_t&);
 
 
 #endif

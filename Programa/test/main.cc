@@ -16,8 +16,6 @@ using namespace std;
 static void opt_input(string const &);
 static void opt_output(string const &);
 static void opt_n_decimator(string const &);
-// static void opt_format(string const &);
-static void opt_help(string const &);
 
 // Tabla de opciones de línea de comando. El formato de la tabla
 // consta de un elemento por cada opción a definir. A su vez, en
@@ -25,11 +23,11 @@ static void opt_help(string const &);
 //
 // o La primera columna indica si la opción lleva (1) o no (0) un
 //   argumento adicional.
-//
+// 
 // o La segunda columna representa el nombre corto de la opción.
-//
+// 
 // o Similarmente, la tercera columna determina el nombre largo.
-//
+// 
 // o La cuarta columna contiene el valor por defecto a asignarle
 //   a esta opción en caso que no esté explícitamente presente
 //   en la línea de comandos del programa. Si la opción no tiene
@@ -46,11 +44,10 @@ static void opt_help(string const &);
 // elementos nulos, para indicar el final de la misma.
 //
 
-/**************** Elementos globales ******************/
+//**************** Elementos globales ******************//
 static option_t options[] = {
 	{1, "i", "input", "-", opt_input, OPT_DEFAULT},
 	{1, "o", "output", "-", opt_output, OPT_DEFAULT},
-//	{1, "f", "format", "-", opt_factor, OPT_DEFAULT},
 	{1, "N", "n_decimator","500",opt_n_decimator, OPT_DEFAULT},
 	{0, "h", "help", NULL, opt_help, OPT_DEFAULT},
 	{0, },
@@ -70,7 +67,7 @@ static fstream ofs;		// Output File Stream (derivada de la clase ofstream que de
 
 
 
-/*****************************************************/
+//*****************************************************//
 
 static void
 opt_input(string const &arg)
@@ -161,7 +158,6 @@ opt_help(string const &arg)
 }
 
 	
-
 
 int
 main(int argc, char * const argv[])

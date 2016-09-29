@@ -3,12 +3,17 @@
 \usepackage[utf8]{inputenc}		% Configuro la codificación
 \input{config.tex}				% Archivo con los comandos globales como Título y autores
 \input{preamble.tex}
+
+% Defino el path de los includegraphics
 \graphicspath{{./Figuras/}}		% Directorio que contiene los graficos
 
 % Defino el path para los input de .tex y de .eps
 \makeatletter
-\def\input@path{{./Figuras/}{./Secciones/}{./Cover_page/}{../Programa/}}
+\def\input@path{{./Figuras/}{./Secciones/}{./Cover_page/}}
 \makeatother
+
+% Defino el path del listings
+\lstinputpath{../Programa/test}
 
 
 \begin{document}
