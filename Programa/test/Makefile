@@ -1,9 +1,5 @@
 # Makefile para compilar el Trabajo Práctico 0 de Algoritmos y Programación II
 
-## .PHONY se utiliza para destacar que las reglas con targets 'phoneados' no generan 
-## archivos con esos nombres. Por lo tanto, no busca la existencia de ellos y opera solo
-## si es llamado y siempre. También se usa para evitar ambiguedades (como con el comando view)
-
 DIR_INCLUDE= -I.
 CXX = g++
 CXXARGS  = -ansi -pedantic -Wall -g
@@ -33,16 +29,6 @@ complejo.cc: complejo.h
 am_proc.o: am_proc.cc
 	$(CXX) $(CXXFLAGS) -c -o am_proc.o am_proc.cc
 am_proc.cc: am_proc.h complejo.h 
-
-# Testing targets
-# 
-#	MODIFICAR Y HACER LAS PREUBAS!!!!!
-#
-#runtest.exe: runtest.cc
-#	$(CXX) $(CXXFLAGS) -o runtest.exe runtest.cc
-#
-#test tests: cmdline.exe runtest.exe
-#	runtest.exe cmdline.tests
 
 
 # Cleaning target

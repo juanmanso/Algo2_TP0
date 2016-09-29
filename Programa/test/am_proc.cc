@@ -21,12 +21,15 @@ am_proc(istream *is, ostream *os, const size_t& n_decimator){
 	while(!eof_flag){
 		
 		//  Se suman los primeros 'n_decimator' números hasta que corte
-		for(i=1; i<=n_decimator && ((*is)>>aux); i++)
+		for(i=1, c=0; i<=n_decimator && ((*is)>>aux); i++)
 			c += aux;
 	
 		// Compruebo si se llegó a EOF
-		if(is->eof())
+		if(is->eof()){
 			eof_flag=true;
+			if(c==0)
+				break;
+		}
 
 		if(is->bad()){ 
 		// El for terminó por no puder guardar el caracter en x

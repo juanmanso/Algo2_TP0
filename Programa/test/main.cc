@@ -1,6 +1,4 @@
 
-// 
-
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -152,7 +150,7 @@ opt_n_decimator(string const &arg)
 static void
 opt_help(string const &arg)
 {
-	cout << "tp0 [-N n_decimator] [-i file] [-o file] [-f format]"
+	cout << "tp0 [-N n_decimator] [-i file] [-o file]"
 	     << endl;
 	exit(0);
 }

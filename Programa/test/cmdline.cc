@@ -15,19 +15,19 @@ cmdline::cmdline()
 
 cmdline::cmdline(option_t *table) : option_table(table)
 {
-	/* 
-	- Lo mismo que hacer:
-
-	option_table = table;
-
-	Siendo "option_table" un atributo de la clase cmdline
-	y table un puntero a objeto o struct de "option_t".
-	
-	Se estaría construyendo una instancia de la clase cmdline
-	cargandole los datos que se hayan en table (la table con
-	las opciones, ver el código en main.cc)
-
-	*/
+	 
+	//	Lo mismo que hacer:
+	//
+	//	option_table = table;
+	//
+	//	Siendo "option_table" un atributo de 
+	//	la clase cmdline y table un puntero a objeto
+	//	o struct de "option_t".
+	//
+	//	Se estaría construyendo una instancia de la
+	//	clase cmdline cargandole los datos que se
+	//	hayan en table (la table con las opciones,
+	//	ver el código en main.cc)
 }
 
 void

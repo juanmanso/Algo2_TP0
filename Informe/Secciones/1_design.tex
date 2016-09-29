@@ -64,10 +64,10 @@ static option_t options[] = {
 
 Como es requerido, se definió a la cadena ``-'' (tercera columna de la tabla de opciones) como el valor por defecto para las opciones de entrada y de salida. De esta manera, ya sea que se haya omitido esa opción o se la especifique explicítamente para que asuma su valor por defecto, en ambos casos se  obtendrá el mismo resultado.
 
-Además la clase \texttt{cmdline} pide especificar las funciones que se utilizarán para parsear cada opción (5ta columna de la tabla) - se las definió en el mismo \texttt{main}. Para las funciones que parsean las opciones de entrada, salida y ayuda se aprovecharon las que ya estaban implementadas en el archivo \texttt{main.cc} provisto con la implementación de la clase \texttt{cmdline} del curso. Quedó por definir, entonces, el \texttt{parser} para el parámetro $N$ de decimación:
+Además la clase \texttt{cmdline} pide especificar las funciones que se utilizarán para \emph{parsear} cada opción (5ta columna de la tabla) - se las definió en el mismo \texttt{main}. Para las funciones que parsean las opciones de entrada, salida y ayuda se aprovecharon las que ya estaban implementadas en el archivo \texttt{main.cc} provisto con la implementación de la clase \texttt{cmdline} del curso. Quedó por definir, entonces, el \texttt{parser} para el parámetro $N$ de decimación:
 
 
-\lstset{language=C++} % Esta seteado para utf8 pero no puede renderear los acentos! No entiendo por que
+\lstset{language=C++} 
 \begin{lstlisting}[frame=single]
 static void
 opt_n_decimator(string const &arg)
@@ -123,7 +123,7 @@ main(int argc, char * const argv[])
 }
 \end{lstlisting}
 
-La función \texttt{am\_proc} está declarada en ``\texttt{am\_proc.h}'' y definida en ``\texttt{am\_proc.cc}''. Fuera de chequear por errores de lectura, su implementación es en escencia el pseudo-código de la sección anterior:
+La función \texttt{am\_proc} está declarada en ``\texttt{am\_proc.h}'' y definida en ``\texttt{am\_proc.cc}''. Fuera de comprobar si hubo errores de lectura, su implementación es en escencia el pseudo-código de la sección anterior:
 
 \lstset{language=C++}
 \begin{lstlisting}[frame=single]
