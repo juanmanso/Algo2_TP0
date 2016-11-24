@@ -14,6 +14,7 @@ using namespace std;
 static void opt_input(string const &);
 static void opt_output(string const &);
 static void opt_n_decimator(string const &);
+static void opt_help(string const &);
 
 // Tabla de opciones de línea de comando. El formato de la tabla
 // consta de un elemento por cada opción a definir. A su vez, en
@@ -125,14 +126,15 @@ static void
 opt_n_decimator(string const &arg)
 {
 	istringstream iss(arg);
+	int aux;
 
 	// Intentamos extraer el N de la línea de comandos.
 	// Para detectar argumentos que únicamente consistan de
 	// números enteros, vamos a verificar que EOF llegue justo
 	// después de la lectura exitosa del escalar.
 	
-	if(!(iss >> n_decimator) || !iss.eof()) {
-		cerr << "non-integer factor: "
+	if(!(iss >> aux) || !iss.eof() || aux<0) {
+		cerr << "non-positive integer factor: "
 		     << arg
 		     << "."
 		     << endl;
@@ -144,6 +146,7 @@ opt_n_decimator(string const &arg)
 		     << endl;
 		exit(1);
 	}
+	n_decimator=aux;
 }
 
 
